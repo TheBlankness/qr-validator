@@ -54,6 +54,9 @@
 
     // Store the updated array in localStorage
     localStorage.setItem("qrcodes", JSON.stringify(array));
+
+    alert("QR added to database");
+    scannedText = "";
   }
   function getArrayFromLocalStorage() {
     if (!browser) return; //ONLY CLIENT SIDE!!!!
@@ -84,12 +87,23 @@
   <div class="bg-gray-200 rounded-md p-3">
     <p class="text-lg font-normal">{scannedText}</p>
   </div>
-  <button
-    class="px-4 bg-green-700 text-white p-2 rounded-md"
-    on:click={() => {
-      insertOrUpdateObject(myqrcodes, scannedText, true);
-    }}>Mark above code as Valid</button
-  >
+
+  {#if scannedText}
+    <button
+      class="px-4 bg-green-700 text-white p-2 rounded-md"
+      on:click={() => {
+        insertOrUpdateObject(myqrcodes, scannedText, true);
+      }}>Mark above code as Valid</button
+    >
+  {:else}
+    <button
+      class="px-4 bg-red-100 text-gray p-2 rounded-md"
+      disabled
+      on:click={() => {
+        insertOrUpdateObject(myqrcodes, scannedText, true);
+      }}>Please Scan a valid QR</button
+    >
+  {/if}
 
   <a
     href="/"
@@ -105,7 +119,7 @@
     class="px-4 bg-red-500 text-white p-2 rounded-md"
     on:click={() => {
       localStorage.setItem("qrcodes", JSON.stringify([]));
-    }}>Clear all values</button
+    }}>Clear all QR values in database</button
   >
 </main>
 

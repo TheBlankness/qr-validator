@@ -1,7 +1,7 @@
 <title>Home Page</title>
 
-<main class="flex flex-col items-center justify-center h-screen">
-  <h1 class="text-4xl font-bold mb-8">Welcome to Food validator!</h1>
+<main class="flex flex-col items-center justify-center h-screen px-7">
+  <h1 class="text-2xl font-bold mb-8">Welcome to Food validator!</h1>
 
   <p class="text-2xl font-bold mb-2">For Users</p>
   <div class="bg-gray-200 rounded-md p-3">
@@ -34,8 +34,8 @@
 
   <a
     href="/login"
-    class="mt-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md inline-block"
+    class="mt-2 bg-cyan-600 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md inline-block"
   >
-    Login
+    Admin Login 👨🏻‍⚖️
   </a>
 </main>
