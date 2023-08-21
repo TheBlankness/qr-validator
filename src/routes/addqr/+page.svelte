@@ -69,24 +69,43 @@
 <main>
   <reader id="reader" />
   {#if scanning}
-    <button on:click={stop}>stop</button>
+    <button
+      class="px-4 bg-red-500 text-white p-2 font-bold rounded-md"
+      on:click={stop}>STOP</button
+    >
   {:else}
-    <button on:click={start}>start</button>
+    <button
+      class="px-4 bg-blue-600 text-white p-2 font-bold rounded-md"
+      on:click={start}>START</button
+    >
   {/if}
 
-  <p>Your scanned QR value</p>
-  <p>{scannedText}</p>
+  <p class="text-xl font-bold mb-2">Your scanned QR value</p>
+  <div class="bg-gray-200 rounded-md p-3">
+    <p class="text-lg font-normal">{scannedText}</p>
+  </div>
   <button
-    style="padding: 20px;"
+    class="px-4 bg-green-700 text-white p-2 rounded-md"
     on:click={() => {
       insertOrUpdateObject(myqrcodes, scannedText, true);
-    }}>Mark Valid</button
+    }}>Mark above code as Valid</button
   >
+
+  <a
+    href="/"
+    class="mt-2 bg-zinc-600 hover:bg-zinc-800 text-white font-bold py-2 px-4 rounded-md mb-4 inline-block"
+  >
+    Go to Home
+  </a>
+
+  <p class="pt-11 text-xl font-bold mb-2 text-red-900">
+    Dangerous Setting below
+  </p>
   <button
-    style="padding: 20px;"
+    class="px-4 bg-red-500 text-white p-2 rounded-md"
     on:click={() => {
       localStorage.setItem("qrcodes", JSON.stringify([]));
-    }}>Clear</button
+    }}>Clear all values</button
   >
 </main>
 

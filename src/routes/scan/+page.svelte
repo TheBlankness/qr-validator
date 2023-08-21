@@ -58,14 +58,31 @@
 <main>
   <reader id="reader" />
   {#if scanning}
-    <button on:click={stop}>stop</button>
+    <button
+      class="px-4 bg-red-500 text-white p-2 font-bold rounded-md"
+      on:click={stop}>STOP</button
+    >
   {:else}
-    <button on:click={start}>start</button>
+    <button
+      class="px-4 bg-blue-600 text-white p-2 font-bold rounded-md"
+      on:click={start}>START</button
+    >
   {/if}
 
-  <p>Scanned Text</p>
-  <p>{scannedText}</p>
-  <p>{checkQrcodeExists(scannedText) ? "Valid" : "Not Valid"}</p>
+  <p class="text-xl font-bold mb-2">Your scanned QR value</p>
+  <div class="bg-gray-200 rounded-md p-3">
+    <p class="text-lg font-normal">{scannedText}</p>
+  </div>
+
+  {#if checkQrcodeExists(scannedText)}
+    <p class="px-4 bg-green-500 text-white p-2 font-bold rounded-md">
+      Authentic Product
+    </p>
+  {:else if scannedText}
+    <p class="px-4 bg-red-500 text-white p-2 font-bold rounded-md">
+      Not Authentic Product
+    </p>
+  {/if}
 </main>
 
 <style>
