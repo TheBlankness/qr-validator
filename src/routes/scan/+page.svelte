@@ -83,6 +83,13 @@
       Not Authentic Product
     </p>
   {/if}
+
+  <a
+    href="/"
+    class="mt-2 bg-zinc-600 hover:bg-zinc-800 text-white font-bold py-2 px-4 rounded-md mb-4 inline-block"
+  >
+    Go to Home
+  </a>
 </main>
 
 <style>

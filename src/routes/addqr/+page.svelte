@@ -93,7 +93,7 @@
       class="px-4 bg-green-700 text-white p-2 rounded-md"
       on:click={() => {
         insertOrUpdateObject(myqrcodes, scannedText, true);
-      }}>Mark above code as Valid</button
+      }}>Mark above code as Authentic</button
     >
   {:else}
     <button

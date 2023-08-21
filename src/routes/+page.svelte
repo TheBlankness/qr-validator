@@ -27,9 +27,9 @@
     </p>
     <p class="text-md font-semibold">Step 3: Press "Start Scan"</p>
     <p class="text-md font-semibold">
-      Step 4: System will add QR to the database
+      Step 4: Scan a QR code that is an authentic product
     </p>
-    <p class="text-md font-semibold">Step 5: Mark QR code as a valid item</p>
+    <p class="text-md font-semibold">Step 5: Press mark as Authentic button</p>
   </div>
 
   <a
