@@ -1,6 +1,7 @@
 <script>
   import { Html5Qrcode } from "html5-qrcode";
   import { onMount } from "svelte";
+  import { browser } from "$app/environment";
 
   let scanning = false;
 
@@ -43,6 +44,7 @@
   }
 
   function checkQrcodeExists(qrcode) {
+    if (!browser) return; //ONLY CLIENT SIDE!!!!
     // Check if the array contains any item with the given qrcode
     const storedArray = localStorage.getItem("qrcodes");
     const array = storedArray ? JSON.parse(storedArray) : [];
