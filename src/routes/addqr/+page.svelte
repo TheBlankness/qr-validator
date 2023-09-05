@@ -1,4 +1,7 @@
 <script>
+  export let data;
+  import axios from "axios";
+
   import { Html5Qrcode } from "html5-qrcode";
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
@@ -40,16 +43,29 @@
     console.warn(`Code scan error = ${error}`);
   }
 
-  function insertOrUpdateObject(array, qrcode, valid) {
+  async function insertOrUpdateObject(array, qrcode, valid) {
     if (!browser) return; //ONLY CLIENT SIDE!!!!
     const existingItem = array.find((item) => item.qrcode === qrcode);
-
     if (existingItem) {
       if (existingItem.valid !== valid) {
         existingItem.valid = valid;
       }
     } else {
       array.push({ qrcode, valid });
+
+      try {
+        const res = await axios.post(`/api/apiqr`, {
+          data: {
+            name: qrcode,
+          },
+        });
+
+        if (res.data) {
+          console.log(res.data);
+        }
+      } catch (e) {
+        console.error(e);
+      }
     }
 
     // Store the updated array in localStorage
@@ -66,7 +82,7 @@
   }
 
   // Example usage:
-  const myqrcodes = getArrayFromLocalStorage();
+  const myqrcodes = data.qrcodes;
 </script>
 
 <main>

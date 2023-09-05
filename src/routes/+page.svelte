@@ -23,7 +23,7 @@
   <div class="bg-gray-200 rounded-md p-3">
     <p class="text-md font-semibold">Step 1: Click on "Login"</p>
     <p class="text-md font-semibold">
-      Step 2: Login with username and password default admin/admin
+      Step 2: Login with username and password default QRADMIN/QRADMIN123
     </p>
     <p class="text-md font-semibold">Step 3: Press "Start Scan"</p>
     <p class="text-md font-semibold">
