@@ -2,6 +2,13 @@
 import axios from "axios";
 axios.defaults.baseURL = "https://qrcode.lawcloud.page";
 
+function convertToJson(inputJson) {
+  return inputJson.map((item) => ({
+    qrcode: item.attributes.name,
+    valid: true,
+  }));
+}
+
 export async function load({ cookies }) {
   let qrcodes;
 
@@ -10,6 +17,7 @@ export async function load({ cookies }) {
     if (res.data) {
       // console.log(res.data.data);
       qrcodes = convertToJson(res.data.data);
+      console.log(qrcodes);
     }
   } catch (e) {
     console.log(e);
@@ -18,11 +26,4 @@ export async function load({ cookies }) {
   return {
     qrcodes,
   };
-}
-
-function convertToJson(inputJson) {
-  return inputJson.map((item) => ({
-    qrcode: item.attributes.name,
-    valid: true,
-  }));
 }

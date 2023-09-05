@@ -49,7 +49,7 @@
     if (!browser) return; //ONLY CLIENT SIDE!!!!
     // Check if the array contains any item with the given qrcode
     const storedArray = data.qrcodes;
-    const array = storedArray ? JSON.parse(storedArray) : [];
+    const array = storedArray ? storedArray : [];
     const existingItem = array.find((item) => item.qrcode === qrcode);
 
     // If an item with the given qrcode exists, return true; otherwise, return false
